@@ -24,27 +24,27 @@ path = 'data/tax_return2.xlsx'
 datas: int
 
 
-def tax_culc(_name: str, _sheet: int, _max: int):
-    file = load_workbook(path)
-    sheet = file[_sheet]
-    sums = []
-    for i in range(1, _max, 1):
-        datas = sheet.cell(row=i, column=2).value
-        sums.append(datas)
-    print(f'{_name}: {sum(sums)}')
+class AA:
+    def __init__(self, _name: str, _sheet: int, _max: int):
+        file = load_workbook(path)
+        sheet = file[_sheet]
+        sums = []
+        for i in range(1, _max, 1):
+            datas = sheet.cell(row=i, column=2).value
+            sums.append(datas)
+        print(f'{_name}: {sum(sums)}')
 
-    file.close()
+        file.close()
 
 
-class Culc_Tax:
-    def get_all() -> int:
-        taxes: list[int] = []
+def get_all() -> int:
+    taxes: list[int] = []
 
-        return 0
+    return 0
 
 
 if __name__ == '__main__':
     from openpyxl import *
 
-    # for i in range(4):
-    #     tax_culc(names[i], sheets[i], max_row[i])
+    for i in range(4):
+        AA(names[i], sheets[i], max_row[i])
