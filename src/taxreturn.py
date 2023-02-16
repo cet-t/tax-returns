@@ -40,7 +40,7 @@ def all_tax():
     pass
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     from openpyxl import *
 
     taxes: list[int] = []
