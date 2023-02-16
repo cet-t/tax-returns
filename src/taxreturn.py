@@ -12,13 +12,20 @@ max_row = [
     75
 ]
 
-h = 'hiroko'
-t = 'takashi'
-path = './tax_return2.xlsx'
+names = [
+    'hiroko-med',
+    'hiroko-nur',
+    'takashi-med',
+    'takashi-nur'
+]
+
+path = 'data/tax_return2.xlsx'
+
+datas: int
 
 
 def tax_culc(_name: str, _sheet: int, _max: int):
-    file = openpyxl.load_workbook(path)
+    file = load_workbook(path)
     sheet = file[_sheet]
     sums = []
     for i in range(1, _max, 1):
@@ -29,11 +36,13 @@ def tax_culc(_name: str, _sheet: int, _max: int):
     file.close()
 
 
+def all_tax():
+    pass
+
+
 if __name__ == "__main__":
-    import openpyxl
+    from openpyxl import *
 
-    for i in range(2, 4, 1):
-        tax_culc(t, sheets[i], max_row[i])
-
-    for i in range(2):
-        tax_culc(h, sheets[i], max_row[i])
+    taxes: list[int] = []
+    for i in range(4):
+        tax_culc(names[i], sheets[i], max_row[i])
