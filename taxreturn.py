@@ -14,9 +14,16 @@ def mn(_med, _nur, _name) -> None:
 if __name__ == "__main__":
     import datas
     import sys
+    import openpyxl
 
     sys.path.append("./hiro.py")
     sys.path.append("./taka.py")
 
-    mn(datas.hiro_med, datas.hiro_nur, "hiroko")
-    mn(datas.taka_med, datas.taka_nur, "takashi")
+    # mn(datas.hiro_med, datas.hiro_nur, "hiroko")
+    # mn(datas.taka_med, datas.taka_nur, "takashi")
+
+    wb = openpyxl.load_workbook('./tax_return.xlsx')
+    sheet = wb['hiroko_med']
+    v = sheet.cell(row=1, column=1).value
+    wb.close()
+    print(v)
