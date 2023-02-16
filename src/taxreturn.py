@@ -36,7 +36,7 @@ def tax_culc(_name: str, _sheet: int, _max: int):
     file.close()
 
 
-def all_tax():
+def all_tax() -> int:
     pass
 
 
