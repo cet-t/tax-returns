@@ -36,13 +36,15 @@ def tax_culc(_name: str, _sheet: int, _max: int):
     file.close()
 
 
-def all_tax():
-    pass
+class Culc_Tax:
+    def get_all() -> int:
+        taxes: list[int] = []
+
+        return 0
 
 
 if __name__ == '__main__':
     from openpyxl import *
 
-    taxes: list[int] = []
-    for i in range(4):
-        tax_culc(names[i], sheets[i], max_row[i])
+    # for i in range(4):
+    #     tax_culc(names[i], sheets[i], max_row[i])
