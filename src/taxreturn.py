@@ -31,9 +31,8 @@ def tax_culc(_name: str, _sheet: int, _max: int):
     for i in range(1, _max, 1):
         datas = sheet.cell(row=i, column=2).value
         sums.append(datas)
-    print(f'{_name}: {sum(sums)}')
-
     file.close()
+    return datas
 
 
 def all_tax() -> int:
@@ -43,6 +42,4 @@ def all_tax() -> int:
 if __name__ == '__main__':
     from openpyxl import *
 
-    taxes: list[int] = []
-    for i in range(4):
-        tax_culc(names[i], sheets[i], max_row[i])
+    print(tax_culc('test', sheets[0], max_row[0]))
