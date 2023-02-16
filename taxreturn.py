@@ -1,29 +1,32 @@
-def auto_sum(_sum) -> int:
-    ret: int = sum(_sum)
-    return ret
+class defs:
+    def auto_sum(_sum) -> int:
+        ret: int = sum(_sum)
+        return ret
 
-
-def mn(_med, _nur, _name) -> None:
-    hm = auto_sum(_med)
-    hn = auto_sum(_nur)
-    print(f'{_name}: {hm}')
-    print(f'{_name}: {hn}')
-    print(f'sum: {hm+hn}')
+    def mn(_med, _nur, _name) -> None:
+        hm = defs.auto_sum(_med)
+        hn = defs.auto_sum(_nur)
+        print(f'{_name}: {hm}')
+        print(f'{_name}: {hn}')
+        print(f'sum: {hm+hn}')
 
 
 if __name__ == "__main__":
-    import datas
-    import sys
     import openpyxl
+    import datas
 
-    sys.path.append("./hiro.py")
-    sys.path.append("./taka.py")
+    # defs.mn(datas.hiro_med, datas.hiro_nur, "hiroko")
+    # defs.mn(datas.taka_med, datas.taka_nur, "takashi")
 
-    # mn(datas.hiro_med, datas.hiro_nur, "hiroko")
-    # mn(datas.taka_med, datas.taka_nur, "takashi")
+    sheets = [
+        'hiroko_med',
+        'hiroko_nur',
+        'takashi_med',
+        'takashi_nur'
+    ]
 
-    wb = openpyxl.load_workbook('./tax_return.xlsx')
-    sheet = wb['hiroko_med']
+    file = openpyxl.load_workbook('./tax_return2.xlsx')
+    sheet = file[sheets[0]]
     v = sheet.cell(row=1, column=1).value
-    wb.close()
     print(v)
+    file.close()
