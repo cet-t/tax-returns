@@ -36,6 +36,7 @@ def tax_culc(_name: str, _sheet: int, _max: int):
     file.close()
 
 
+'''
 def all_tax(_sheet: int, _max: int) -> int:
     file = load_workbook(path)
     sheet = file[_sheet]
@@ -45,6 +46,7 @@ def all_tax(_sheet: int, _max: int) -> int:
         adds += dts
     file.close()
     return adds
+'''
 
 
 if __name__ == '__main__':
@@ -54,5 +56,5 @@ if __name__ == '__main__':
     for i in range(4):
         tax_culc(names[i], sheets[i], max_row[i])
 
-    for i in range(4):
-        print(all_tax(sheets[i], max_row[i]))
+    # for i in range(4):
+        # print(all_tax(sheets[i], max_row[i]))
