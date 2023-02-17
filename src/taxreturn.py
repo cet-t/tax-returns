@@ -1,3 +1,4 @@
+import openpyxl
 sheets = [
     'hiroko_med',
     'hiroko_nur',
@@ -19,6 +20,8 @@ titles = [
     'takashi nursing',
     'nursing',
 ]
+
+path = 'data/tax_return2.xlsx'
 
 
 def tax_culc(_name: str, _sheet: int, _max: int) -> None:
@@ -51,22 +54,22 @@ sums = [
     tax_sum(sheets[2], max_row[2]),
     tax_sum(sheets[3], max_row[3]),
 ]
-all_: int = 0
-alls = [
-    sums[0],  # 医1
-    sums[1],  # 介1
-    sums[2],  # 医2
-    sums[3],  # 介2
-    sums[0]+sums[2],  # 医合計
-    sums[1]+sums[3],  # 介合計
-    sums[0]+sums[1],  # 合計1
-    sums[2]+sums[3],  # 合計2
-    sum(sums),
-]
 
+alls: str = [
+    f'hiroko-medical: {sums[0]}',  # 医1
+    f'hiroko-nursing: {sums[1]}',  # 介1
+    f'hiroko-subtotal: {sums[0]+sums[1]}',  # 合計1
+    '',
+    f'takashi-medical: {sums[2]}',  # 医2
+    f'takashi-nursing: {sums[3]}',  # 介2
+    f'takashi-subtotal: {sums[2]+sums[3]}',  # 合計2
+    '',
+    f'medical-subtotal: {sums[0]+sums[2]}',  # 医合計
+    f'nursing-subtotal: {sums[1]+sums[3]}',  # 介合計
+    f'total: {sum(sums)}',
+]
 if __name__ == '__main__':
     import openpyxl
 
-    path = 'data/tax_return2.xlsx'
-    # for i in range(len(sums)):
-    # print(sums[i])
+    for i in alls:
+        print(i)
