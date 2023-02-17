@@ -14,13 +14,6 @@ max_row = [
     75
 ]
 
-titles = [
-    'hiroko medical',
-    'hiroko nursing',
-    'takashi medical',
-    'takashi nursing',
-    'nursing',
-]
 
 path = 'data/tax_return2.xlsx'
 
