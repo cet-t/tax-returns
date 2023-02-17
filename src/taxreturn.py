@@ -50,9 +50,6 @@ def tax_sum(_sheet: int, _max: int) -> int:
 if __name__ == '__main__':
     from openpyxl import *
 
-    # for i in range(4):
-    # tax_culc(names[i], sheets[i], max_row[i])
-
     sums: list[int]
     sums = [
         tax_sum(sheets[0], max_row[0]),
