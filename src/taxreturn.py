@@ -12,16 +12,15 @@ max_row = [
     75
 ]
 
-names = [
-    'hiroko-med',
-    'hiroko-nur',
-    'takashi-med',
-    'takashi-nur'
+titles = [
+    'hiroko medical',
+    'hiroko nursing',
+    'takashi medical',
+    'takashi nursing',
+    'nursing',
 ]
 
 path = 'data/tax_return2.xlsx'
-
-datas: int
 
 
 def tax_culc(_name: str, _sheet: int, _max: int) -> None:
@@ -51,11 +50,19 @@ def tax_sum(_sheet: int, _max: int) -> int:
 if __name__ == '__main__':
     from openpyxl import *
 
-    taxes: list[int] = []
-    for i in range(4):
-        tax_culc(names[i], sheets[i], max_row[i])
-    sums: dict[str, int]
-    sums = tax_sum(sheets[0], max_row[0])
-    sums = tax_sum(sheets[1], max_row[1])
-    sums = tax_sum(sheets[2], max_row[2])
-    sums = tax_sum(sheets[3], max_row[3])
+    # for i in range(4):
+    # tax_culc(names[i], sheets[i], max_row[i])
+
+    sums: list[int]
+    sums = [
+        tax_sum(sheets[0], max_row[0]),
+        tax_sum(sheets[1], max_row[1]),
+        tax_sum(sheets[2], max_row[2]),
+        tax_sum(sheets[3], max_row[3]),
+    ]
+    alls = [
+        sums[0],
+    ]
+
+    for i in range(len(sums)):
+        print(sums[i])
