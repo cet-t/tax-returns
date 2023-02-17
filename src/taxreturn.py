@@ -14,7 +14,6 @@ max_row = [
     75
 ]
 
-
 path = 'data/tax_return2.xlsx'
 
 
@@ -29,7 +28,6 @@ def tax_sum(_sheet: int, _max: int) -> int:
     return sum(sums)
 
 
-sums: list[int]
 sums = [
     tax_sum(sheets[0], max_row[0]),
     tax_sum(sheets[1], max_row[1]),
