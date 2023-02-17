@@ -25,25 +25,13 @@ titles = [
 path = 'data/tax_return2.xlsx'
 
 
-def tax_culc(_name: str, _sheet: int, _max: int) -> None:
-    file = openpyxl.load_workbook(path)
-    sheet = file[_sheet]
-    sums = []
-    for i in range(1, _max, 1):
-        datas = sheet.cell(i, 2).value
-        sums.append(datas)
-    print(f'{_name}: {sum(sums)}')
-
-    file.close()
-
-
 def tax_sum(_sheet: int, _max: int) -> int:
     file = openpyxl.load_workbook(path)
     sheet = file[_sheet]
     sums = []
     for i in range(1, _max, 1):
-        datas = sheet.cell(i, 2).value
-        sums.append(datas)
+        data = sheet.cell(i, 2).value
+        sums.append(data)
     file.close()
     return sum(sums)
 
