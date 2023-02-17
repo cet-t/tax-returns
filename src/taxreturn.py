@@ -1,4 +1,5 @@
 import openpyxl
+
 sheets = [
     'hiroko_med',
     'hiroko_nur',
@@ -56,20 +57,16 @@ sums = [
 ]
 
 alls: str = [
-    f'hiroko-medical: {sums[0]}',  # 医1
-    f'hiroko-nursing: {sums[1]}',  # 介1
-    f'hiroko-subtotal: {sums[0]+sums[1]}',  # 合計1
-    '',
-    f'takashi-medical: {sums[2]}',  # 医2
-    f'takashi-nursing: {sums[3]}',  # 介2
-    f'takashi-subtotal: {sums[2]+sums[3]}',  # 合計2
-    '',
-    f'medical-subtotal: {sums[0]+sums[2]}',  # 医合計
-    f'nursing-subtotal: {sums[1]+sums[3]}',  # 介合計
+    f'hiroko-medical: {sums[0]}',
+    f'hiroko-nursing: {sums[1]}',
+    f'hiroko-subtotal: {sums[0]+sums[1]}\n',
+    f'takashi-medical: {sums[2]}',
+    f'takashi-nursing: {sums[3]}',
+    f'takashi-subtotal: {sums[2]+sums[3]}\n',
+    f'medical-subtotal: {sums[0]+sums[2]}',
+    f'nursing-subtotal: {sums[1]+sums[3]}',
     f'total: {sum(sums)}',
 ]
 if __name__ == '__main__':
-    import openpyxl
-
     for i in alls:
         print(i)
